@@ -1,4 +1,4 @@
-package com.example.curso.model.entity;
+package com.example.curso.model.entity.enums;
 
 public enum TipoLancamento {
     RECEITA,

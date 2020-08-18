@@ -1,5 +1,6 @@
 package com.example.curso.model.entity;
 
+import com.example.curso.model.entity.enums.TipoLancamento;
 import org.springframework.data.jpa.convert.threeten.Jsr310JpaConverters;
 
 import javax.persistence.*;

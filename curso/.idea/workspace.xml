@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a750a7c2-cd56-46f0-9cdb-61ebf63ae169" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectId" id="1dyVtEmKbat4Wm27i3fo8PomI7v" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../cursoBackEnd" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="cursoSpring" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="cursoSpring" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CursoApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="cursoSpring" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.curso.CursoApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a750a7c2-cd56-46f0-9cdb-61ebf63ae169" name="Default Changelist" comment="" />
+      <created>1593397532785</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1593397532785</updated>
+      <workItem from="1593397534036" duration="4078000" />
+      <workItem from="1593824109648" duration="598000" />
+      <workItem from="1594003128598" duration="630000" />
+      <workItem from="1594576447080" duration="2500000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="2" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="389" y="181" width="1107" height="688" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1594004584693">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="389" y="181" width="1107" height="688" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1594004584693" />
+    <state x="768" y="238" width="611" height="632" key="#com.intellij.ide.util.MemberChooser" timestamp="1594578307773">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="768" y="238" width="611" height="632" key="#com.intellij.ide.util.MemberChooser/0.25.1920.1055@0.25.1920.1055" timestamp="1594578307773" />
+    <state x="1222" y="310" key="FileChooserDialogImpl" timestamp="1594579831838">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="1222" y="310" key="FileChooserDialogImpl/0.25.1920.1055@0.25.1920.1055" timestamp="1594579831838" />
+    <state width="908" height="266" key="GridCell.Tab.0.bottom" timestamp="1593401777543">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state width="908" height="266" key="GridCell.Tab.0.bottom/0.25.1920.1055@0.25.1920.1055" timestamp="1593401777543" />
+    <state width="908" height="266" key="GridCell.Tab.0.center" timestamp="1593401777543">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state width="908" height="266" key="GridCell.Tab.0.center/0.25.1920.1055@0.25.1920.1055" timestamp="1593401777543" />
+    <state width="908" height="266" key="GridCell.Tab.0.left" timestamp="1593401777543">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state width="908" height="266" key="GridCell.Tab.0.left/0.25.1920.1055@0.25.1920.1055" timestamp="1593401777543" />
+    <state width="908" height="266" key="GridCell.Tab.0.right" timestamp="1593401777543">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state width="908" height="266" key="GridCell.Tab.0.right/0.25.1920.1055@0.25.1920.1055" timestamp="1593401777543" />
+    <state x="493" y="210" width="924" height="688" key="Maven.ArtifactSearchDialog" timestamp="1593400225635">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="493" y="210" width="924" height="688" key="Maven.ArtifactSearchDialog/0.25.1920.1055@0.25.1920.1055" timestamp="1593400225635" />
+    <state x="1118" y="261" width="644" height="582" key="find.popup" timestamp="1594578098383">
+      <screen x="0" y="25" width="1920" height="1055" />
+    </state>
+    <state x="1118" y="261" width="644" height="582" key="find.popup/0.25.1920.1055@0.25.1920.1055" timestamp="1594578098383" />
+  </component>
+</project>

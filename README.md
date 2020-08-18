@@ -1,3 +1,14 @@
 ## PRIMEIRO COMMIT 
 
 CURSO COMPLETO SPRING REACT
+
+## ARQUITETURA DO PROJETO BACKEND É DIVIDIDO EM 3 CAMADAS:
+# MODEL
+* Repositories
+* Classes DAO
+* Persistência 
+# SERVICE
+* Regras de negócio
+# CONTROLLER
+* Endpoints
+* DTOs 

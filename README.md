@@ -11,4 +11,9 @@ CURSO COMPLETO SPRING REACT
 * Regras de negócio
 # CONTROLLER
 * Endpoints
-* DTOs 
+* DTOs
+
+## Spring
+* O container no spring é formado por beans gerenciados, esses beans são instâncias de objetos de configuração, negócio, infraestrutura, componentes e outros.
+* Para serem reconhecidos com beans gerenciados ou springBeans, devem ser anotados com os SpringAnotaion, exemplo: @Component, @Service, @Controller, @Bean dentre outros.
+* Por padrão os beans são singletons. sendo uma instância de cada por aplicação.

@@ -26,7 +26,6 @@ public class Lancamento {
     private int ano;
 
     @ManyToOne
-    @Column(name = "id_usuario")
     private Usuario usuario;
 
     @Column(name = "valor")

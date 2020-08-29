@@ -20,6 +20,10 @@ public class Usuario {
     @Column(name = "senha")
     private String senha;
 
+    public Usuario() {
+
+    }
+
     public Long getId() {
         return id;
     }

@@ -23,6 +23,8 @@ public class UsuarioRepositoryTeste {
         Usuario usuario= new Usuario();
         usuario.setNome("UsuarioTeste");
         usuario.setEmail("teste@email.com");
+        usuario.setSenha("123");
+
         repository.save(usuario);
 
             //ação /Execução
@@ -30,5 +32,14 @@ public class UsuarioRepositoryTeste {
 
             //Verificação
         Assertions.assertThat(result).isTrue();
+    }
+
+    @Test
+    public void deveRetornarFalsoQuandoNãoHouverUsuario(){
+        repository.deleteAll();
+
+        boolean result= repository.existsByEmail("teste@email.com");
+
+        Assertions.assertThat(result).isFalse();
     }
 }

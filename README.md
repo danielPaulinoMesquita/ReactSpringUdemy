@@ -20,7 +20,7 @@ CURSO COMPLETO SPRING REACT
 
 # Testes
 	Testes de integração são testes que dependem de configurações ou serviços externos, exemplo: Banco de Dados, Apis etc.
-
+@SpringBootTest sobe o contexto do spring para executar os testes, isso inclui classes de serviços, configuração e repository. Dependendo do teste a ser feito, não vale a pena usar tal anotação, exemplo uma classe de teste que faça teste somente no banco de dados, o melhor seria usar @DataJpaTest.
 
 
 

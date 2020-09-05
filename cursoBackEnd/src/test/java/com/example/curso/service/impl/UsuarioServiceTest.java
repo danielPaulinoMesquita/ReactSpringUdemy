@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.ActiveProfiles;
@@ -26,18 +27,14 @@ public class UsuarioServiceTest {
 
     @Before
     public void init() {
-        Usuario usuario= new Usuario();
-        usuario.setNome("UsuarioTeste");
-        usuario.setEmail("email@email.com");
-        usuario.setSenha("123");
-
-        repository.save(usuario);
+        repository = Mockito.mock(UsuarioRepository.class);
+        service = new UsuarioServiceImpl(repository);
     }
 
     @Test(expected = Test.None.class)
     public void deveValidarEmail() {
         // cenario
-        repository.deleteAll();
+        Mockito.when(repository.existsByEmail(Mockito.anyString())).thenReturn(false);
 
         //ação
         service.validarEmail("email@email.com");
@@ -45,8 +42,10 @@ public class UsuarioServiceTest {
 
     @Test(expected = RegraDeNegocioException.class)
     public void deveLancarErroAoValidarEmailQuandoExistirEmailCadastrado() throws RegraDeNegocioException{
+        //Cenário
+       Mockito.when(repository.existsByEmail(Mockito.anyString())).thenReturn(true);
 
         //acao
-        service.validarEmail("email@email.com");
+        service.validarEmail(Mockito.anyString());
     }
 }

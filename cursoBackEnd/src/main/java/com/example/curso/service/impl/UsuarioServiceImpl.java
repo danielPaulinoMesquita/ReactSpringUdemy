@@ -17,6 +17,10 @@ public class UsuarioServiceImpl implements UsuarioService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
+    public UsuarioServiceImpl(UsuarioRepository usuarioRepository) {
+        this.usuarioRepository = usuarioRepository;
+    }
+
     @Override
     public Usuario autenticar(String email, String senha) {
         Optional<Usuario> usuario= usuarioRepository.findByEmail(email);

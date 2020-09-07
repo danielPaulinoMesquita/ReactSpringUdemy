@@ -1,6 +1,7 @@
 package com.example.curso.api.resources;
 
 import com.example.curso.api.dto.UsuarioDTO;
+import com.example.curso.exception.ErroAutenticacao;
 import com.example.curso.exception.RegraDeNegocioException;
 import com.example.curso.model.entity.Usuario;
 import com.example.curso.service.UsuarioService;
@@ -16,6 +17,16 @@ public class UsuarioResource {
 
     public UsuarioResource(UsuarioService usuarioService) {
         this.usuarioService = usuarioService;
+    }
+
+    @PostMapping("/autenticar")
+    public ResponseEntity autenticar(@RequestBody UsuarioDTO usuarioDTO){
+        try {
+            Usuario usuarioAutenticado= usuarioService.autenticar(usuarioDTO.getEmail(), usuarioDTO.getSenha());
+            return ResponseEntity.ok(usuarioAutenticado);
+        }catch (ErroAutenticacao e){
+            return ResponseEntity.badRequest().body(e.getMessage());
+        }
     }
 
     @PostMapping

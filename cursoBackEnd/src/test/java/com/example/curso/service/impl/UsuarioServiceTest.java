@@ -9,6 +9,7 @@ import org.assertj.core.api.Assertions;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.boot.test.mock.mockito.SpyBean;
@@ -40,6 +41,20 @@ public class UsuarioServiceTest {
         Assertions.assertThat(usuarioSalvo.getId()).isEqualTo(1L);
         Assertions.assertThat(usuarioSalvo.getEmail()).isEqualTo("email@email.com");
         Assertions.assertThat(usuarioSalvo.getSenha()).isEqualTo("senha");
+
+    }
+
+    @Test(expected = RegraDeNegocioException.class)
+    public void naoDeveSalvarUmUsuarioComEmailJaCadastrado(){
+        //cenario
+        Usuario usuario = getUsuario("email@email.com", "senha");
+        Mockito.doThrow(RegraDeNegocioException.class).when(service).validarEmail("email@email.com");
+
+        //acao
+        service.salvarUsuario(usuario);
+
+        //verificacao
+        Mockito.verify(repository, Mockito.never()).save(usuario);
 
     }
 

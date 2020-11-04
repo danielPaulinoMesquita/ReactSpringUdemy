@@ -49,4 +49,9 @@ public class UsuarioServiceImpl implements UsuarioService {
             throw new RegraDeNegocioException("Já Existe um Usuário cadastrado com esse Email!");
         }
     }
+
+    @Override
+    public Optional<Usuario> obterPorId(Long id) {
+        return usuarioRepository.findById(id);
+    }
 }

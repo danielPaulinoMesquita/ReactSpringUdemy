@@ -1,5 +1,6 @@
 package com.example.curso.api.resources;
 
+import com.example.curso.api.dto.AtualizaStatusDTO;
 import com.example.curso.api.dto.LancamentoDTO;
 import com.example.curso.exception.RegraDeNegocioException;
 import com.example.curso.model.entity.Lancamento;
@@ -76,6 +77,26 @@ public class LancamentoResource {
                 lancamento1.setId(lancamento.getId());
                 lancamentoService.atualizar(lancamento1);
                 return ResponseEntity.ok(lancamento1);
+            }catch (RegraDeNegocioException re){
+                return ResponseEntity.badRequest().body(re.getMessage());
+            }
+        }).orElseGet(
+                ()-> new ResponseEntity("Lancamento não encontrado na base de Dados.", HttpStatus.BAD_REQUEST));
+    }
+
+    @PutMapping("{id}/atualiza-status")
+    public ResponseEntity atualizarStatus(@PathVariable("id") Long id, @RequestBody AtualizaStatusDTO atualizaStatusDTO){
+        return lancamentoService.obterPorId(id).map(lancamentoEncontrado -> {
+            StatusLancamento statusSelecionado = StatusLancamento.valueOf(atualizaStatusDTO.getStatus());
+
+            if(statusSelecionado == null){
+                return ResponseEntity.badRequest().body("Não foi possível atualizar o status do lançamento, envie um status válido! ");
+            }
+
+            try {
+                lancamentoEncontrado.setStatus(statusSelecionado);
+                lancamentoService.atualizar(lancamentoEncontrado);
+                return ResponseEntity.ok(lancamentoEncontrado);
             }catch (RegraDeNegocioException re){
                 return ResponseEntity.badRequest().body(re.getMessage());
             }

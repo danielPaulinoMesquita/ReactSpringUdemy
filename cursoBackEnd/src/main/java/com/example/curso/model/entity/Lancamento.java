@@ -43,6 +43,10 @@ public class Lancamento {
     @Enumerated(value = EnumType.STRING)
     private StatusLancamento status;
 
+    public Lancamento() {
+
+    }
+
     public Long getId() {
         return id;
     }

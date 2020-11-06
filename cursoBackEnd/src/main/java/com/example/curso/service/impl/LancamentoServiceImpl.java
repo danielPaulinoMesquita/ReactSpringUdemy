@@ -3,6 +3,7 @@ package com.example.curso.service.impl;
 import com.example.curso.exception.RegraDeNegocioException;
 import com.example.curso.model.entity.Lancamento;
 import com.example.curso.model.entity.StatusLancamento;
+import com.example.curso.model.entity.enums.TipoLancamento;
 import com.example.curso.model.repository.LancamentoRepository;
 import com.example.curso.service.LancamentoService;
 import org.springframework.data.domain.Example;
@@ -99,4 +100,22 @@ public class LancamentoServiceImpl implements LancamentoService {
     public Optional<Lancamento> obterPorId(Long id) {
         return lancamentoRepository.findById(id);
     }
+
+    @Override
+    @Transactional(readOnly = true)
+    public BigDecimal obterSaldoPorUsuario(Long id) {
+        BigDecimal receitas = lancamentoRepository.obterSaldoPorTipoLancamentoEUsuario(id, TipoLancamento.RECEITA);
+        BigDecimal despesas = lancamentoRepository.obterSaldoPorTipoLancamentoEUsuario(id, TipoLancamento.DESPESA);
+
+        if(receitas == null){
+            receitas = BigDecimal.ZERO;
+        }
+
+        if(despesas == null){
+            despesas = BigDecimal.ZERO;
+        }
+
+        return receitas.subtract(despesas);
+    }
+
 }

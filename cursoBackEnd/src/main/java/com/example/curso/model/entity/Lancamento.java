@@ -20,10 +20,10 @@ public class Lancamento {
     private String descricao;
 
     @Column(name = "mes")
-    private int mes;
+    private Integer mes;
 
     @Column(name = "ano")
-    private int ano;
+    private Integer ano;
 
     @ManyToOne
     private Usuario usuario;
@@ -59,19 +59,19 @@ public class Lancamento {
         this.descricao = descricao;
     }
 
-    public int getMes() {
+    public Integer getMes() {
         return mes;
     }
 
-    public void setMes(int mes) {
+    public void setMes(Integer mes) {
         this.mes = mes;
     }
 
-    public int getAno() {
+    public Integer getAno() {
         return ano;
     }
 
-    public void setAno(int ano) {
+    public void setAno(Integer ano) {
         this.ano = ano;
     }
 

@@ -8,11 +8,12 @@ import com.example.curso.service.LancamentoService;
 import org.springframework.data.domain.Example;
 import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
-import javax.transaction.Transactional;
 import java.math.BigDecimal;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 @Service
 public class LancamentoServiceImpl implements LancamentoService {
@@ -40,7 +41,7 @@ public class LancamentoServiceImpl implements LancamentoService {
     }
 
     @Override
-    @Transactional
+    @Transactional(readOnly = true)
     public void deletar(Lancamento lancamento) {
         lancamentoRepository.delete(lancamento);
     }
@@ -52,7 +53,7 @@ public class LancamentoServiceImpl implements LancamentoService {
      * @return
      */
     @Override
-    @Transactional
+    @org.springframework.transaction.annotation.Transactional( readOnly = true)
     public List<Lancamento> buscar(Lancamento lancamentoFiltro) {
         Example example= Example.of(lancamentoFiltro,
                 ExampleMatcher.matching().withIgnoreCase().withStringMatcher(ExampleMatcher.StringMatcher.CONTAINING));
@@ -92,5 +93,10 @@ public class LancamentoServiceImpl implements LancamentoService {
         if(lancamento.getTipo() == null){
             throw new RegraDeNegocioException("Informe um tipo de lançamento");
         }
+    }
+
+    @Override
+    public Optional<Lancamento> obterPorId(Long id) {
+        return lancamentoRepository.findById(id);
     }
 }

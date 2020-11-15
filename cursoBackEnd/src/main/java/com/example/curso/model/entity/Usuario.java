@@ -1,5 +1,7 @@
 package com.example.curso.model.entity;
 
+import com.example.curso.api.dto.UsuarioDTO;
+import com.example.curso.exception.RegraDeNegocioException;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
@@ -81,5 +83,16 @@ public class Usuario {
                 ", email='" + email + '\'' +
                 ", senha='" + senha + '\'' +
                 '}';
+    }
+
+    public static Usuario mapperUsuarioDTOtoUsuario(UsuarioDTO usuarioDTO){
+        if (!(usuarioDTO.getEmail()!=null && usuarioDTO.getNome()!=null && usuarioDTO.getSenha() != null)){
+            throw  new RegraDeNegocioException("Campos nulos ao converter UsuarioDTO para Usuario ");
+        }
+       Usuario usuario = new Usuario();
+       usuario.setNome(usuarioDTO.getNome());
+       usuario.setEmail(usuarioDTO.getEmail());
+       usuario.setSenha(usuarioDTO.getSenha());
+       return usuario;
     }
 }

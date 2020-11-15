@@ -37,10 +37,10 @@ public class UsuarioResource {
 
     @PostMapping
     public ResponseEntity salvar(@RequestBody UsuarioDTO usuarioDTO){
-        Usuario usuario = getUsuario("email@email.com", "senha");
+        Usuario usuario = Usuario.mapperUsuarioDTOtoUsuario(usuarioDTO);
 
         try {
-            Usuario usuarioSalvo=usuarioService.salvarUsuario(usuario);
+            Usuario usuarioSalvo = usuarioService.salvarUsuario(usuario);
             return new ResponseEntity(usuarioSalvo, HttpStatus.CREATED);
 
         }catch (RegraDeNegocioException regraDeNegocioException){

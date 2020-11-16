@@ -19,7 +19,7 @@ function Navbar(){
                     <ul className="navbar-nav">
                         <Navbaritem href="#/home" label="Home"/>
                         <Navbaritem href="#/cadastro-usuarios" label="Usuários" />
-                        <Navbaritem href="#/" label="Lançamentos" />
+                        <Navbaritem href="#/consulta-lancamentos" label="Lançamentos" />
                         <Navbaritem href="#/login" label="Login" />
                     </ul>
                 </div>

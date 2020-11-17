@@ -42,7 +42,7 @@ public class LancamentoServiceImpl implements LancamentoService {
     }
 
     @Override
-    @Transactional(readOnly = true)
+    @Transactional
     public void deletar(Lancamento lancamento) {
         Objects.requireNonNull(lancamento.getId());
         lancamentoRepository.delete(lancamento);

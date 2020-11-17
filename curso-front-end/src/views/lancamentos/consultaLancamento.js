@@ -7,6 +7,7 @@ import TableLancamento from './tableLancamento';
 import LancamentoService from '../../app/service/lancamentoService';
 import LocalStorageService from "../../app/service/localStorageService";
 import * as messages from '../../components/toastr'
+import {mensagemErro} from "../../components/toastr";
 
 class ConsultaLancamento extends React.Component{
 
@@ -47,12 +48,24 @@ class ConsultaLancamento extends React.Component{
         });
     }
 
-    editar = (id) =>{
+    editar = (id) => {
         console.log("para editar lancamento: ",id);
     }
 
-    deletar = (id) =>{
-        console.log("para deletar lancamento: ",id);
+    deletar = ( lancamento ) => {
+        this.service
+            .deletar(lancamento.id)
+            .then(response => {
+                const lancamentos = this.state.lancamentos;
+                const index = lancamentos.indexOf(lancamento);
+                lancamentos.splice(index,1);
+                this.setState(lancamentos);
+
+                messages.mensagemSucesso('Lançamento deletado com sucesso!')
+            })
+            .catch(error => {
+                messages.mensagemErro('Ocorreu um erro ao tentar deletar o Lançamento')
+            })
     }
 
     render() {

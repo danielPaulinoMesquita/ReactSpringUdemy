@@ -7,7 +7,9 @@ import TableLancamento from './tableLancamento';
 import LancamentoService from '../../app/service/lancamentoService';
 import LocalStorageService from "../../app/service/localStorageService";
 import * as messages from '../../components/toastr'
-import {mensagemErro} from "../../components/toastr";
+
+import { Dialog } from 'primereact/dialog';
+import { Button } from 'primereact/button';
 
 class ConsultaLancamento extends React.Component{
 
@@ -16,6 +18,8 @@ class ConsultaLancamento extends React.Component{
         mes: '',
         tipo: '',
         descricao: '',
+        showConfirmDialog: false,
+        lancamentoDeletar: {},
         lancamentos : []
     }
 
@@ -52,20 +56,40 @@ class ConsultaLancamento extends React.Component{
         console.log("para editar lancamento: ",id);
     }
 
-    deletar = ( lancamento ) => {
+    abrirConfirmacao = (lancamento) => {
+        console.log(lancamento);
+        this.setState({showConfirmDialog: true, lancamentoDeletar: lancamento})
+    }
+
+    cancelarDelecao = () => {
+        this.setState({showConfirmDialog: false, lancamentoDeletar: {}})
+    }
+
+    deletar = () => {
         this.service
-            .deletar(lancamento.id)
+            .deletar(this.state.lancamentoDeletar.id)
             .then(response => {
                 const lancamentos = this.state.lancamentos;
-                const index = lancamentos.indexOf(lancamento);
+                const index = lancamentos.indexOf(this.state.lancamentoDeletar);
                 lancamentos.splice(index,1);
-                this.setState(lancamentos);
+                this.setState({lancamentos: lancamentos, showConfirmDialog: false});
 
                 messages.mensagemSucesso('Lançamento deletado com sucesso!')
             })
             .catch(error => {
                 messages.mensagemErro('Ocorreu um erro ao tentar deletar o Lançamento')
             })
+    }
+
+    renderFooter() {
+        return (
+            <div>
+                <Button label="Não" onClick={this.cancelarDelecao} icon="pi pi-times" className="p-button-text">
+                </Button>
+                <Button label="Sim" onClick={this.deletar} icon="pi pi-check" autoFocu>
+                </Button>
+            </div>
+        );
     }
 
     render() {
@@ -124,9 +148,21 @@ class ConsultaLancamento extends React.Component{
                             <TableLancamento
                                 lancamentos={this.state.lancamentos}
                                 editAction={this.editar}
-                                deleteAction={this.deletar}/>
+                                deleteAction={this.abrirConfirmacao}/>
                         </div>
                     </div>
+                </div>
+                <div>
+                    <Dialog header="Confirmação"
+                            visible={this.state.showConfirmDialog}
+                            style={{ width: '350px' }}
+                            modal={true}
+                            footer={this.renderFooter('displayConfirmation')}
+                            onHide={() => this.setState({showConfirmDialog: false})}>
+                        <div className="dialog-demo confirmation-content">
+                            <span>Deseja excluir este Lançamento?</span>
+                        </div>
+                    </Dialog>
                 </div>
             </Card>
 

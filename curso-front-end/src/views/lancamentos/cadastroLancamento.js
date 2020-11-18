@@ -27,6 +27,11 @@ class CadastroLancamentos extends React.Component{
         this.service = new LancamentoService();
     }
 
+    componentDidMount() {
+        const params = this.props.match.params;
+        console.log('params: ', params);
+    }
+
     submit = () => {
 
         // --> FORMA ANTIGA DE ATRIBUIR VALORES DO STATE PARA O OBJETO

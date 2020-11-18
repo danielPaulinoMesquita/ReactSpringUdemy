@@ -14,6 +14,9 @@ public class LancamentoDTO {
     private String tipo;
     private String status;
 
+    public LancamentoDTO() {
+    }
+
     public Long getId() {
         return id;
     }

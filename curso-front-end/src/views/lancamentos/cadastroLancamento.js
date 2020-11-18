@@ -5,8 +5,10 @@ import FormGroup from "../../components/form-group";
 import SelectMenu from '../../components/selectMenu'
 
 import {withRouter} from 'react-router-dom';
+import * as messages from '../../components/toastr'
 
 import LancamentoService from "../../app/service/lancamentoService";
+import LocalStorageService from "../../app/service/localStorageService";
 
 class CadastroLancamentos extends React.Component{
 
@@ -26,7 +28,29 @@ class CadastroLancamentos extends React.Component{
     }
 
     submit = () => {
-        console.log(this.state);
+
+        // --> FORMA ANTIGA DE ATRIBUIR VALORES DO STATE PARA O OBJETO
+        // const lancamento = {
+        //     descricao: this.state.descricao,
+        //     valor: this.state.valor,
+        //     mes: this.state.mes,
+        //     ano: this.state.ano,
+        //     tipo: this.state.tipo,
+        //     status: this.state.status
+        // }
+
+        const usuarioLogado = LocalStorageService.obterItem('_usuario_logado');
+
+        // --> NOVA FORMA, USANDO DESTRUCTING
+        const {descricao, valor, mes, ano, tipo} = this.state;
+        const lancamento = {descricao, valor, mes, ano, tipo, usuario: usuarioLogado.id};
+
+        this.service.salvar(lancamento)
+            .then(() => {
+                messages.mensagemSucesso('Lançamento cadastrado com Sucesso!');
+            }).catch(error =>{
+                messages.mensagemErro(error.response.data);
+        })
     }
 
     handleChange = (event) => {

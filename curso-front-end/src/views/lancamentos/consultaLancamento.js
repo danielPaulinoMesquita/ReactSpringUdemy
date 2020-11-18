@@ -81,6 +81,10 @@ class ConsultaLancamento extends React.Component{
             })
     }
 
+    prepareCadastrar = () =>{
+        this.props.history.push('/cadastro-lancamentos')
+    }
+
     renderFooter() {
         return (
             <div>
@@ -138,7 +142,7 @@ class ConsultaLancamento extends React.Component{
 
                         </div>
                         <button  onClick={this.buscar} className="btn btn-success">Buscar</button>
-                        <button  className="btn btn-danger">Cadastrar</button>
+                        <button  onClick={this.prepareCadastrar} className="btn btn-danger">Cadastrar</button>
                     </div>
                 </div>
                 <br/>

@@ -30,7 +30,10 @@ export default class  LancamentoService extends ApiService{
             {label: 'Despesa', value:'DESPESA'},
             {label: 'Receita', value:'RECEITA'},
         ]
+    }
 
+    salvar(lancamento){
+        return this.post('/', lancamento);
     }
 
     consultar(lancamentoFiltro){

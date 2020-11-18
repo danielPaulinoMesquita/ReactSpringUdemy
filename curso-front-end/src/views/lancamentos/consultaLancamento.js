@@ -98,7 +98,6 @@ class ConsultaLancamento extends React.Component{
 
     render() {
         const meses = this.service.obterListaMeses();
-
         const tipos = this.service.obterListaTipos();
 
         return (

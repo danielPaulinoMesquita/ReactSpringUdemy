@@ -58,6 +58,12 @@ public class LancamentoResource {
         return ResponseEntity.ok(lancamentoList);
     }
 
+    @GetMapping("{id}")
+    public ResponseEntity obterLancamento(@PathVariable("id") Long id){
+        return lancamentoService.obterPorId(id)
+                .map(lancamento -> new ResponseEntity(converter(lancamento), HttpStatus.OK)).orElseGet(() -> new ResponseEntity(HttpStatus.NOT_FOUND));
+    }
+
     @PostMapping
     public ResponseEntity salvar(@RequestBody LancamentoDTO lancamentoDTO){
         try {
@@ -133,5 +139,25 @@ public class LancamentoResource {
         }
 
         return lancamento;
+    }
+
+    private LancamentoDTO converter(Lancamento lancamento){
+        LancamentoDTO lancamentoDTO = new LancamentoDTO();
+        lancamentoDTO.setId(lancamento.getId());
+        lancamentoDTO.setDescricao(lancamento.getDescricao());
+        lancamentoDTO.setAno(lancamento.getAno());
+        lancamentoDTO.setMes(lancamento.getMes());
+        lancamentoDTO.setValor(lancamento.getValor());
+        lancamentoDTO.setUsuario(lancamento.getUsuario().getId());
+
+        if (lancamento.getTipo() != null){
+            lancamentoDTO.setTipo(lancamento.getTipo().name());
+        }
+
+        if (lancamento.getStatus() != null){
+            lancamentoDTO.setStatus(lancamento.getStatus().name());
+        }
+
+        return lancamentoDTO;
     }
 }

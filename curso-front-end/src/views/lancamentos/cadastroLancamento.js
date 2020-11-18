@@ -44,22 +44,30 @@ class CadastroLancamentos extends React.Component{
         console.log('params: ', params);
     }
 
-    submit = () => {
-        const usuarioLogado = LocalStorageService.obterItem('_usuario_logado');
 
-        // --> NOVA FORMA, USANDO DESTRUCTING
-        const {descricao, valor, mes, ano, tipo} = this.state;
-        const lancamento = {descricao, valor, mes, ano, tipo, usuario: usuarioLogado.id};
+submit = () => {
+    const usuarioLogado = LocalStorageService.obterItem('_usuario_logado');
+    // --> NOVA FORMA, USANDO DESTRUCTING
+    const {descricao, valor, mes, ano, tipo} = this.state;
+    const lancamento = {descricao, valor, mes, ano, tipo, usuario: usuarioLogado.id};
 
-        this.service
-            .salvar(lancamento)
-            .then(() => {
-                this.props.history.push('/consulta-lancamentos')
-                messages.mensagemSucesso('Lançamento cadastrado com Sucesso!');
-            }).catch(error =>{
-                messages.mensagemErro(error.response.data);
-        })
+    try {
+        this.service.validar(lancamento);
+    }catch (erro) {
+        const mensagens = erro.mensagens;
+        mensagens.forEach(msg => messages.mensagemErro(msg));
+        return false;
     }
+
+    this.service
+        .salvar(lancamento)
+        .then(() => {
+            this.props.history.push('/consulta-lancamentos')
+            messages.mensagemSucesso('Lançamento cadastrado com Sucesso!');
+        }).catch(error =>{
+        messages.mensagemErro(error.response.data);
+    })
+}
 
     atualizar = () => {
         const {descricao, valor, mes, ano, tipo, status, id, usuario} = this.state;

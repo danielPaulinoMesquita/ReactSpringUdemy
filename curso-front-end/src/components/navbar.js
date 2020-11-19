@@ -1,6 +1,11 @@
 import React from 'react'
 
 import Navbaritem from "./navbaritem";
+import AuthService from "../app/service/authService";
+
+const deslogar = () => {
+    AuthService.removerUsuarioAutenticado();
+}
 
 function Navbar(){
     return (
@@ -20,7 +25,7 @@ function Navbar(){
                         <Navbaritem href="#/home" label="Home"/>
                         <Navbaritem href="#/cadastro-usuarios" label="Usuários" />
                         <Navbaritem href="#/consulta-lancamentos" label="Lançamentos" />
-                        <Navbaritem href="#/login" label="Login" />
+                        <Navbaritem onClick={deslogar} href="#/login" label="Sair" />
                     </ul>
                 </div>
             </div>

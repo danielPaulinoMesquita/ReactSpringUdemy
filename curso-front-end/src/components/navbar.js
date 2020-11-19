@@ -7,6 +7,10 @@ const deslogar = () => {
     AuthService.removerUsuarioAutenticado();
 }
 
+const isUsuarioAutenticado = () => {
+    return AuthService.isUsuarioAutenticado();
+}
+
 function Navbar(){
     return (
         <div className="navbar navbar-expand-lg fixed-top navbar-dark bg-primary">
@@ -22,10 +26,10 @@ function Navbar(){
                 </button>
                 <div className="collapse navbar-collapse" id="navbarResponsive">
                     <ul className="navbar-nav">
-                        <Navbaritem href="#/home" label="Home"/>
-                        <Navbaritem href="#/cadastro-usuarios" label="Usuários" />
-                        <Navbaritem href="#/consulta-lancamentos" label="Lançamentos" />
-                        <Navbaritem onClick={deslogar} href="#/login" label="Sair" />
+                        <Navbaritem render={isUsuarioAutenticado()} href="#/home" label="Home"/>
+                        <Navbaritem render={isUsuarioAutenticado()}href="#/cadastro-usuarios" label="Usuários" />
+                        <Navbaritem render={isUsuarioAutenticado()} href="#/consulta-lancamentos" label="Lançamentos" />
+                        <Navbaritem render={isUsuarioAutenticado()}onClick={deslogar} href="#/login" label="Sair" />
                     </ul>
                 </div>
             </div>

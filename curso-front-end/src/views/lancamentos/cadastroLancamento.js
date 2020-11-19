@@ -165,10 +165,19 @@ submit = () => {
                 <div className="row">
                     <div className="col-md-12">
                         {this.state.atualizando ?
-                            (<button onClick={this.atualizar} className="btn btn-primary">Atualizar</button>
-                        ) : (<button onClick={this.submit} className="btn btn-success">Salvar</button>
+                            (<button onClick={this.atualizar}
+                                     className="btn btn-primary">
+                                    <i className="pi pi-refresh"/> Atualizar
+                            </button>
+                            ) : (<button onClick={this.submit}
+                                         className="btn btn-success">
+                                    <i className="pi pi-save"/> Salvar
+                                </button>
                         )}
-                        <button onClick={e => this.props.history.push('/consulta-lancamentos')} className="btn btn-danger">Cancelar</button>
+                        <button onClick={e => this.props.history.push('/consulta-lancamentos')}
+                                className="btn btn-danger">
+                            <i className="pi pi-backward"/> Cancelar
+                        </button>
                     </div>
                 </div>
             </Card>

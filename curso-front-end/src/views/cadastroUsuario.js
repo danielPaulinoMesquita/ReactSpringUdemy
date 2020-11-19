@@ -81,8 +81,16 @@ class CadastroUsuario extends React.Component{
                                        name="senhaRepeticao"
                                        onChange={e => this.setState({senhaRepeticao: e.target.value})}/>
                             </FormGroup>
-                            <button onClick={this.cadastrar} type="button" className="btn btn-success">Salvar</button>
-                            <button onClick={this.voltar} type="button" className="btn btn-danger">Voltar</button>
+                            <button onClick={this.cadastrar}
+                                    type="button"
+                                    className="btn btn-success">
+                                <i className="pi pi-save"/> Salvar
+                            </button>
+                            <button onClick={this.voltar}
+                                    type="button"
+                                    className="btn btn-danger">
+                                <i className="pi pi-step-backward"/> Voltar
+                            </button>
                         </div>
                     </div>
                 </div>

@@ -157,8 +157,14 @@ class ConsultaLancamento extends React.Component{
                             </FormGroup>
 
                         </div>
-                        <button  onClick={this.buscar} className="btn btn-success">Buscar</button>
-                        <button  onClick={this.prepareCadastrar} className="btn btn-danger">Cadastrar</button>
+                        <button  onClick={this.buscar}
+                                 className="btn btn-success">
+                            <i className="pi pi-search"/> Buscar
+                        </button>
+                        <button  onClick={this.prepareCadastrar}
+                                 className="btn btn-danger">
+                            <i className="pi pi-plus"/> Cadastrar
+                        </button>
                     </div>
                 </div>
                 <br/>
